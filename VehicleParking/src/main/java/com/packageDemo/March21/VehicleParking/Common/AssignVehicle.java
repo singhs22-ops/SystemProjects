@@ -28,12 +28,21 @@ public class AssignVehicle {
 	}
 
 
-    public void AddVehicleDetails(String RegNum, String color) {
+    public void AddVehicleDetails(String regNumcolor) {
     	
-	        veh.setRegNum(RegNum);
-	        veh.setColor(color);
+	    	/*@SuppressWarnings("resource")
+			Scanner myObj = new Scanner(System.in);  // Create a Scanner object
+	        System.out.println("Enter Registration nUmber");
+	        String regNum = myObj.nextLine();  // Read registrationNumber as input
+	        System.out.println("Enter color");
+	        String Color = myObj.nextLine();  // Read Color input*/
+	
+    		String[] arrOfStr = regNumcolor.split("@", 2);
+	        veh.setRegNum(arrOfStr[0]);
+	        veh.setColor(arrOfStr[1]);
 	        
 	        Obj.add(veh);
+	        setCurrentSet(Obj.size());
    
     }
 

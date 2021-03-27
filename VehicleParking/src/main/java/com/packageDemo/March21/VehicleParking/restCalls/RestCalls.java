@@ -38,21 +38,20 @@ public class RestCalls {
 		return ret;
 	}
 	
-	@PostMapping("/assignVehicledetails/{regNum}/{color}")
-	public String assignVehicledetails(@PathVariable String RegNum,@PathVariable String color){
+	@PostMapping("/assignVehicledetails/{regNumcolor}")
+	public String assignVehicledetails(@PathVariable String regNumcolor){
 		    if(Aveh.getCurrentSet()<Aveh.getCapacity()) {
-		    	Aveh.AddVehicleDetails(RegNum, color);
+		    	Aveh.AddVehicleDetails(regNumcolor);
 		    	return "Details Stored";		    	
 		    }
 		    else
 		    	return "No Response";
 	}
 	
-	@PostMapping("/deleteFromSlot/{regNum}")
-	public String deleteFromSlot(@PathVariable String regNum) {
-		Aveh.deleteSlot(regNum);
-		
-		return "Done";
+	@DeleteMapping("/deleteFromSlot/{regNum}")
+	public boolean deleteFromSlot(@PathVariable String regNum) {
+		return Aveh.deleteSlot(regNum);
+	
 	}
 	
 	@PostMapping("/getSlot")
