@@ -59,6 +59,11 @@ public class RestCalls {
 		return Aveh.getSlot();
 	}
 	
+	@PostMapping("/getAlldata")
+	List<VehicleClass> getAlldata(){
+		return Aveh.getAlldata();
+	}
+	
 	
 	
 }

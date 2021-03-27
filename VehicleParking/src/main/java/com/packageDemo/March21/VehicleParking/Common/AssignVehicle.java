@@ -38,11 +38,11 @@ public class AssignVehicle {
 	        String Color = myObj.nextLine();  // Read Color input*/
 	
     		String[] arrOfStr = regNumcolor.split("@", 2);
-	        veh.setRegNum(arrOfStr[0]);
-	        veh.setColor(arrOfStr[1]);
+	        this.veh.setRegNum(arrOfStr[0]);
+	        this.veh.setColor(arrOfStr[1]);
 	        
-	        Obj.add(veh);
-	        setCurrentSet(Obj.size());
+	        this.Obj.add(this.veh);
+	        //setCurrentSet(this.Obj.size());
    
     }
 
@@ -58,7 +58,8 @@ public class AssignVehicle {
 		
 	}
 	public boolean deleteSlot(String regNum){
-		for(VehicleClass vehObj: Obj) {
+		for(VehicleClass vehObj: this.Obj) {
+			System.out.println("Object Found11"+vehObj.getRegNum()+"::"+regNum);
 			if(vehObj.getRegNum()==regNum) {
 				System.out.println("Object Found");
 				Obj.remove(vehObj);
@@ -68,5 +69,9 @@ public class AssignVehicle {
 		}
 		return false;
 		
+	}
+	
+	public List<VehicleClass> getAlldata(){
+		return this.Obj;
 	}
 }
