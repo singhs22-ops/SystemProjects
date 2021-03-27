@@ -8,8 +8,10 @@ public class AssignVehicle {
 
 	public AssignVehicle() {
 		// TODO Auto-generated constructor stub	
+		AddVehicleDetails();
 		
 	}
+	
 	public int capacity;
 	public int currentSet;
 
@@ -29,7 +31,6 @@ public class AssignVehicle {
 
     public void AddVehicleDetails() {
     	
-    	if(getCurrentSet() <getCapacity()) {
 	    	@SuppressWarnings("resource")
 			Scanner myObj = new Scanner(System.in);  // Create a Scanner object
 	        System.out.println("Enter Registration nUmber");
@@ -42,8 +43,7 @@ public class AssignVehicle {
 	        
 	        Obj.add(veh);
 	        setCurrentSet(Obj.size());
-    }
-    	
+   
     }
 
 	public int getCurrentSet() {

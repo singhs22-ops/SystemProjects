@@ -13,7 +13,7 @@ import com.packageDemo.March21.VehicleParking.Common.VehicleClass;
 
 
 
-@CrossOrigin(origins="http://localhost:4200")
+//@CrossOrigin(origins="http://localhost:4200")
 @RestController
 @RequestMapping("/leaf")
 public class RestCalls {
@@ -22,8 +22,8 @@ public class RestCalls {
 		// TODO Auto-generated constructor stub
 	}
 	
-	VehicleClass veh;
-	AssignVehicle Aveh;
+	VehicleClass veh = new VehicleClass();
+	AssignVehicle Aveh = new AssignVehicle();
 	
 	
 	
@@ -44,8 +44,8 @@ public class RestCalls {
 		    	Aveh.AddVehicleDetails();
 		    	return "Details Stored";		    	
 		    }
-		    
-		return "No Response";
+		    else
+		    	return "No Response";
 	}
 	
 	@PostMapping("/deleteFromSlot/{regNum}")
