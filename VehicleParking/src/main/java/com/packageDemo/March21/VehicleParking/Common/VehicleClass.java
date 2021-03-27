@@ -16,15 +16,9 @@ public class VehicleClass {
 		// TODO Auto-generated constructor stub
 	}
 
-	public int Id;
 	public String RegNum;
 	public String color;
-	public int getId() {
-		return Id;
-	}
-	public void setId(int id) {
-		Id = id;
-	}
+
 	public String getRegNum() {
 		return RegNum;
 	}
