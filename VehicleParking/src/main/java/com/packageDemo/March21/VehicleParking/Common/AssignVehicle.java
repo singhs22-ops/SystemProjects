@@ -62,6 +62,7 @@ public class AssignVehicle {
 			if(vehObj.getRegNum()==regNum) {
 				System.out.println("Object Found");
 				Obj.remove(vehObj);
+				setCurrentSet(Obj.size());
 				return true;
 			}
 		}
