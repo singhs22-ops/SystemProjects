@@ -8,7 +8,6 @@ public class AssignVehicle {
 
 	public AssignVehicle() {
 		// TODO Auto-generated constructor stub	
-		AddVehicleDetails();
 		
 	}
 	
@@ -29,20 +28,12 @@ public class AssignVehicle {
 	}
 
 
-    public void AddVehicleDetails() {
+    public void AddVehicleDetails(String RegNum, String color) {
     	
-	    	@SuppressWarnings("resource")
-			Scanner myObj = new Scanner(System.in);  // Create a Scanner object
-	        System.out.println("Enter Registration nUmber");
-	        String regNum = myObj.nextLine();  // Read registrationNumber as input
-	        System.out.println("Enter color");
-	        String Color = myObj.nextLine();  // Read Color input
-	
-	        veh.setRegNum(regNum);
-	        veh.setColor(Color);
+	        veh.setRegNum(RegNum);
+	        veh.setColor(color);
 	        
 	        Obj.add(veh);
-	        setCurrentSet(Obj.size());
    
     }
 

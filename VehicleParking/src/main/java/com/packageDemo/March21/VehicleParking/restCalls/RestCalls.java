@@ -38,10 +38,10 @@ public class RestCalls {
 		return ret;
 	}
 	
-	@PostMapping("/assignVehicledetails")
-	public String assignVehicledetails(){
+	@PostMapping("/assignVehicledetails/{regNum}/{color}")
+	public String assignVehicledetails(@PathVariable String RegNum,@PathVariable String color){
 		    if(Aveh.getCurrentSet()<Aveh.getCapacity()) {
-		    	Aveh.AddVehicleDetails();
+		    	Aveh.AddVehicleDetails(RegNum, color);
 		    	return "Details Stored";		    	
 		    }
 		    else
