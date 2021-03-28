@@ -26,9 +26,9 @@
     </div>
     <div class="col">
         <div class="form-group">
-            <label> Select Id</label>
+            <label> Select Time and Location</label>
             <select [(ngModel)]="defaultactionType" class="form-control custom-select bg-light" id="action"
-                (input)="changeDefaultactionMovie($event)">
+                (input)="changeselectedTimeLocation($event)">
                 <option *ngFor="let a of SelectTimeandLocation">
                     {{a}}
                 </option>
@@ -46,8 +46,7 @@
             selected options</button>
     </div>
     <h1 style="background-color: chartreuse;">{{optionselecteddisplay}}</h1>
-    <button type="button" class="btn pl-5 pr-5 pt-2 pb-2" (click)="getConfirm()">click to confirm and start seat
-        Booking</button>
+
 
 </div>
 
@@ -59,4 +58,19 @@
         <option>Gold</option>
         <option>Premium</option>
     </select>
+
+    <label> Select Number of tickets</label>
+    <select class="form-control custom-select bg-light" id="action" (input)="changeTicketNumber($event)">
+        <option>1</option><option>2</option><option>3</option>
+        <option>4</option><option>5</option><option>6</option>
+    </select>
+
 </div>
+
+
+<button type="button" class="btn pl-5 pr-5 pt-2 pb-2" (click)="getConfirm()">click to confirm and start seat
+    Booking</button>
+
+
+<h1 style="color: crimson;font-family: Verdana, Geneva, Tahoma, sans-serif;">Payment Gateway</h1>
+<h3 style="color: rgb(34, 87, 24);font-family: Verdana, Geneva, Tahoma, sans-serif;">!Please wait untill payment is completed</h3>

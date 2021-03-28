@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.example.MovieTicket.MovieDetails.ticketstatus;
+import com.example.MovieTicket.MovieDetails.BookTicket;
 import com.example.MovieTicket.MovieDetails.MovieOptions;
 import com.example.MovieTicket.MovieDetails.TimeandLocation;
 
@@ -23,6 +24,7 @@ public class ApiEndPoints {
 	MovieOptions movieList= new MovieOptions();
 	TimeandLocation time= new TimeandLocation();
 	ticketstatus ticketstatus = new ticketstatus();
+	BookTicket bt = new BookTicket();
 
 
 	@GetMapping("/home")
@@ -54,11 +56,18 @@ public class ApiEndPoints {
 		return time.getHunger();
 	}
 	
-	@GetMapping("/getTicketclass")
-	public void getTicketclass(@PathVariable String classV) {
+	@PostMapping("/getTicketclass")
+	public String getTicketclass(@PathVariable String classV) {
 		ticketstatus.setTicketclass(classV);
+		return "Done";
 	}
 	
+	//PaymentProcessingMovie_name
+	@PostMapping("/PaymentProcessingMovie_name/{ticketOpt}")
+	public String PaymentProcessingMovie_name(@PathVariable String ticketOpt){
+		bt.setTicketselected(ticketOpt);
+		return "Done::->+"+ticketOpt;
+	}
 	
 	
 	

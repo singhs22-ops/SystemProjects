@@ -25,4 +25,8 @@ export class CallApiService {
     return this.http.post(`${API_URL}/ticketBooking/listofMoviesOpt3`,null);
   }
 
+  PaymentProcessingMovie_name(movieSelected:String){
+    return this.http.post(`${API_URL}/ticketBooking/PaymentProcessingMovie_name/${movieSelected}`,null);
+  }
+
 }

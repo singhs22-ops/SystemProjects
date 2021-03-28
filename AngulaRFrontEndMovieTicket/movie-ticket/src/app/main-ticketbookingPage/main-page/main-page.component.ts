@@ -9,14 +9,16 @@ import { CallApiService } from 'src/app/Services/call-api.service';
 export class MainPageComponent implements OnInit {
 
   constructor(private apihttp: CallApiService) { }
-  MovieList:any;
+  MovieList: any;
   defaultactionType: String = "Made";
   movieSelected: String;
   SelectTimeandLocation: any;
   timelocationSelected: any;
-  optionselecteddisplay: String ="No Option selected";
-  confirm:boolean = false;
+  optionselecteddisplay: String = "No Option selected";
+  confirm: boolean = false;
   classseleceted: String;
+  ticketnumber: number;
+  dataTobeSent: String;
 
 
 
@@ -29,7 +31,7 @@ export class MainPageComponent implements OnInit {
     this.apihttp.getMovieOptions().subscribe(
       data => {
         console.log(data);
-        this.MovieList=data;
+        this.MovieList = data;
         this.listofMoviesOpt1();
       },
       error => {
@@ -38,22 +40,22 @@ export class MainPageComponent implements OnInit {
     )
   }
 
-  changeDefaultactionMovie(event){
+  changeDefaultactionMovie(event) {
     this.movieSelected = event.target.value;
     console.log(this.movieSelected);
-  
-    if(this.movieSelected=== "Made"){
+
+    if (this.movieSelected === "Made") {
       this.listofMoviesOpt1();
     }
-    if(this.movieSelected=== "Marry"){
+    if (this.movieSelected === "Marry") {
       this.listofMoviesOpt2();
     }
-    if(this.movieSelected=== "Hunger"){
+    if (this.movieSelected === "Hunger") {
       this.listofMoviesOpt3();
     }
   }
 
-  
+
   listofMoviesOpt1() {
     //window.alert("clicked");
 
@@ -68,7 +70,7 @@ export class MainPageComponent implements OnInit {
     )
   }
 
-  
+
   listofMoviesOpt2() {
     //window.alert("clicked");
 
@@ -83,7 +85,7 @@ export class MainPageComponent implements OnInit {
     )
   }
 
-  
+
   listofMoviesOpt3() {
     //window.alert("clicked");
 
@@ -98,11 +100,11 @@ export class MainPageComponent implements OnInit {
     )
   }
 
-  getTimeLocationData(){
+  getTimeLocationData() {
     return this.SelectTimeandLocation;
   }
 
-  changeDefaultTimeLocationAction(event){
+  changeselectedTimeLocation(event) {
     this.timelocationSelected = event.target.value;
     console.log(this.timelocationSelected);
 
@@ -110,17 +112,46 @@ export class MainPageComponent implements OnInit {
 
   }
 
-  getoptionselecteddisplay(){
-    this.optionselecteddisplay =this.movieSelected+ this.timelocationSelected;
+  changeTicketNumber(event) {
+    this.ticketnumber = event.target.value;
+    console.log(this.ticketnumber);
+  }
+
+  getoptionselecteddisplay() {
+    this.optionselecteddisplay = this.movieSelected+"@" + this.timelocationSelected;
     console.log(this.optionselecteddisplay);
   }
 
-  getConfirm(){
-    this.confirm= true;
+  getConfirm() {
+    this.confirm = true;
+    this.dataTobeSent = this.optionselecteddisplay;
+    this.PaymentProcessingMovie_name( this.optionselecteddisplay);
+
+    console.log("AFTER CONFIRMATION"+ this.dataTobeSent);
+    console.log(this.dataTobeSent);
+
 
   }
 
-  changeMovieClass(event){
-    this.classseleceted =event.target.value;
+  changeMovieClass(event) {
+    this.classseleceted = event.target.value;
+    console.log(this.classseleceted);
+  }
+
+
+  PaymentProcessingMovie_name(optionselecteddisplay: String) {
+
+    this.apihttp.PaymentProcessingMovie_name(optionselecteddisplay).subscribe(
+      data => {
+        console.log("DataReceived"+data);
+      },
+      error => {
+        console.log(error);
+      }
+    )
+  }
+
+  changeDefaultactionMovieTimeandLocation(){
+
   }
 }
