@@ -46,6 +46,17 @@
             selected options</button>
     </div>
     <h1 style="background-color: chartreuse;">{{optionselecteddisplay}}</h1>
-    <button type="button" class="btn pl-5 pr-5 pt-2 pb-2" (click)="getConfirm()">click to confirm and start seat Booking</button>
+    <button type="button" class="btn pl-5 pr-5 pt-2 pb-2" (click)="getConfirm()">click to confirm and start seat
+        Booking</button>
 
+</div>
+
+
+<div class="col-6">
+
+    <label> Select Seats</label>
+    <select class="form-control custom-select bg-light" id="action" (input)="changeMovieClass($event)">
+        <option>Gold</option>
+        <option>Premium</option>
+    </select>
 </div>

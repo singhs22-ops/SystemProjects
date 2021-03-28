@@ -14,8 +14,9 @@ export class MainPageComponent implements OnInit {
   movieSelected: String;
   SelectTimeandLocation: any;
   timelocationSelected: any;
-  optionselecteddisplay= String;
+  optionselecteddisplay: String ="No Option selected";
   confirm:boolean = false;
+  classseleceted: String;
 
 
 
@@ -116,5 +117,10 @@ export class MainPageComponent implements OnInit {
 
   getConfirm(){
     this.confirm= true;
+
+  }
+
+  changeMovieClass(event){
+    this.classseleceted =event.target.value;
   }
 }
