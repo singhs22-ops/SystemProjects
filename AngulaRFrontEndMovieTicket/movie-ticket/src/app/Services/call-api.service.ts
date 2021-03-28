@@ -29,4 +29,14 @@ export class CallApiService {
     return this.http.post(`${API_URL}/ticketBooking/PaymentProcessingMovie_name/${movieSelected}`,null);
   }
 
+  
+  getTicketclass(classSelected:String){
+    return this.http.post(`${API_URL}/ticketBooking/getTicketclass/${classSelected}`,null);
+  }
+
+  sendTicketNumber(ticketNum: number){
+    return this.http.post(`${API_URL}/ticketBooking/getTicketclass/${ticketNum}`,null);
+  }
+
+
 }

@@ -16,7 +16,7 @@ export class MainPageComponent implements OnInit {
   timelocationSelected: any;
   optionselecteddisplay: String = "No Option selected";
   confirm: boolean = false;
-  classseleceted: String;
+  classseleceted: String = "Gold";
   ticketnumber: number;
   dataTobeSent: String;
 
@@ -115,6 +115,19 @@ export class MainPageComponent implements OnInit {
   changeTicketNumber(event) {
     this.ticketnumber = event.target.value;
     console.log(this.ticketnumber);
+    this.sendTicketNumber(this.ticketnumber);
+  }
+
+  sendTicketNumber(ticketNumber: number){
+    this.apihttp.sendTicketNumber(ticketNumber).subscribe(
+      data => {
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+      }
+    )
+
   }
 
   getoptionselecteddisplay() {
@@ -136,6 +149,19 @@ export class MainPageComponent implements OnInit {
   changeMovieClass(event) {
     this.classseleceted = event.target.value;
     console.log(this.classseleceted);
+    this.getTicketclass(this.classseleceted);
+  }
+
+  getTicketclass(optionselecteddisplay: String) {
+
+    this.apihttp.getTicketclass(optionselecteddisplay).subscribe(
+      data => {
+        console.log("DataReceived"+data);
+      },
+      error => {
+        console.log(error);
+      }
+    )
   }
 
 
@@ -151,7 +177,4 @@ export class MainPageComponent implements OnInit {
     )
   }
 
-  changeDefaultactionMovieTimeandLocation(){
-
-  }
 }

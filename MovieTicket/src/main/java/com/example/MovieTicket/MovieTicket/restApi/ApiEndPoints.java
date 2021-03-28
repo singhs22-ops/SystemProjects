@@ -56,7 +56,7 @@ public class ApiEndPoints {
 		return time.getHunger();
 	}
 	
-	@PostMapping("/getTicketclass")
+	@PostMapping("/getTicketclass/classV")
 	public String getTicketclass(@PathVariable String classV) {
 		ticketstatus.setTicketclass(classV);
 		return "Done";
@@ -69,6 +69,9 @@ public class ApiEndPoints {
 		return "Done::->+"+ticketOpt;
 	}
 	
-	
-	
+	@PostMapping("/ticketNum/{num}")
+	public String ticketNum(@PathVariable int num) {
+		bt.setNoSeats(num);
+		return "Noted"+num;
+	}
 }

@@ -6,6 +6,13 @@ public class BookTicket {
 		// TODO Auto-generated constructor stub
 	}
 	private String ticketselected;
+	private int noSeats;
+	public int getNoSeats() {
+		return noSeats;
+	}
+	public void setNoSeats(int noSeats) {
+		this.noSeats = noSeats;
+	}
 	public String getTicketselected() {
 		return ticketselected;
 	}
