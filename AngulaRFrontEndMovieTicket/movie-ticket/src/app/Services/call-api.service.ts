@@ -38,5 +38,8 @@ export class CallApiService {
     return this.http.post(`${API_URL}/ticketBooking/getTicketclass/${ticketNum}`,null);
   }
 
+  startBooking(){
+    return this.http.post(`${API_URL}/ticketBooking/startBooking`,null);
+  }
 
 }

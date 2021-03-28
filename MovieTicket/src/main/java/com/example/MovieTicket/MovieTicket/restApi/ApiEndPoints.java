@@ -74,4 +74,10 @@ public class ApiEndPoints {
 		bt.setNoSeats(num);
 		return "Noted"+num;
 	}
+	@PostMapping("/startBooking")
+	public boolean startBooking() {
+		bt.startBooking();
+		return true;
+	}
+	
 }

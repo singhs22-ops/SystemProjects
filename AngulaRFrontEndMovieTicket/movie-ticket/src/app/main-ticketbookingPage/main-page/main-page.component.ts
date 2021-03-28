@@ -17,7 +17,7 @@ export class MainPageComponent implements OnInit {
   optionselecteddisplay: String = "No Option selected";
   confirm: boolean = false;
   classseleceted: String = "Gold";
-  ticketnumber: number;
+  ticketnumber: number = 1;
   dataTobeSent: String;
 
 
@@ -139,9 +139,10 @@ export class MainPageComponent implements OnInit {
     this.confirm = true;
     this.dataTobeSent = this.optionselecteddisplay;
     this.PaymentProcessingMovie_name( this.optionselecteddisplay);
-
+    this.getTicketclass(this.classseleceted);
+    this.sendTicketNumber(this.ticketnumber);
     console.log("AFTER CONFIRMATION"+ this.dataTobeSent);
-    console.log(this.dataTobeSent);
+    this.startBooking();
 
 
   }
@@ -175,6 +176,19 @@ export class MainPageComponent implements OnInit {
         console.log(error);
       }
     )
+  }
+
+  startBooking(){
+    this.apihttp.startBooking().subscribe(
+      data => {
+        //navigatetosomePage
+        console.log("Booking Done"+data);
+      },
+      error => {
+        console.log(error);
+      }
+    )
+
   }
 
 }
