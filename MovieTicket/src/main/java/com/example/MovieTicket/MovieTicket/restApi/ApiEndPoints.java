@@ -4,10 +4,11 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
+import com.example.MovieTicket.MovieDetails.ticketstatus;
 import com.example.MovieTicket.MovieDetails.MovieOptions;
 import com.example.MovieTicket.MovieDetails.TimeandLocation;
 
@@ -21,6 +22,7 @@ public class ApiEndPoints {
 	}
 	MovieOptions movieList= new MovieOptions();
 	TimeandLocation time= new TimeandLocation();
+	ticketstatus ticketstatus = new ticketstatus();
 
 
 	@GetMapping("/home")
@@ -40,16 +42,23 @@ public class ApiEndPoints {
 		return time.getMade();
 		
 	}
+	
 	@PostMapping("/listofMoviesOpt2")
 	public List<List<String>> listofMoviesOpt2(){
 		return time.getMarry();
 		
 	}
+	
 	@PostMapping("/listofMoviesOpt3")
 	public List<List<String>> listofMoviesOpt3(){
 		return time.getHunger();
-		
 	}
+	
+	@GetMapping("/getTicketclass")
+	public void getTicketclass(@PathVariable String classV) {
+		ticketstatus.setTicketclass(classV);
+	}
+	
 	
 	
 	
