@@ -1,0 +1,51 @@
+<button type="button" class="btn btn-primary" (click)="getMovieOptions()">click to get movie details</button>
+<div class="row d-flex flex-row justify-content-between" style="background-color:rgb(197, 197, 204);">
+    <div class="col-6">
+        <label> Display collective data</label>
+        <button type="button" class="btn pl-5 pr-5 pt-2 pb-2" (click)="getMovieOptions()">GetAll Entries</button>
+    </div>
+    <div class="col">
+        <div class="form-group">
+            <label> Select Id</label>
+            <select [(ngModel)]="defaultactionType" class="form-control custom-select bg-light" id="action"
+                (input)="changeDefaultactionMovie($event)">
+                <option *ngFor="let a of MovieList">
+                    {{a}}
+                </option>
+            </select>
+        </div>
+    </div>
+</div>
+<h1 style="background-color: brown;">{{movieSelected}}</h1>
+
+<div class="row">
+    <div class="col-6">
+        <label> Display cTime and Date Options</label>
+        <button type="button" class="btn pl-5 pr-5 pt-2 pb-2" (click)="getTimeLocationData()">Get Time Location
+            Entries</button>
+    </div>
+    <div class="col">
+        <div class="form-group">
+            <label> Select Id</label>
+            <select [(ngModel)]="defaultactionType" class="form-control custom-select bg-light" id="action"
+                (input)="changeDefaultactionMovie($event)">
+                <option *ngFor="let a of SelectTimeandLocation">
+                    {{a}}
+                </option>
+            </select>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="row">
+    <div class="col-6">
+        <label> Display selected options to confirm</label>
+        <button type="button" class="btn pl-5 pr-5 pt-2 pb-2" (click)="getoptionselecteddisplay()">click to view
+            selected options</button>
+    </div>
+    <h1 style="background-color: chartreuse;">{{optionselecteddisplay}}</h1>
+    <button type="button" class="btn pl-5 pr-5 pt-2 pb-2" (click)="getConfirm()">click to confirm and start seat Booking</button>
+
+</div>
