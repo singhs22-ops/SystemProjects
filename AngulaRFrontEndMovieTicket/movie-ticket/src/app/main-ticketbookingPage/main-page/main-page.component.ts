@@ -19,6 +19,7 @@ export class MainPageComponent implements OnInit {
   classseleceted: String = "Gold";
   ticketnumber: number = 1;
   dataTobeSent: String;
+  startPayment:any ;
 
 
 
@@ -181,14 +182,20 @@ export class MainPageComponent implements OnInit {
   startBooking(){
     this.apihttp.startBooking().subscribe(
       data => {
-        //navigatetosomePage
-        console.log("Booking Done"+data);
+        console.log("Booking Done   "+data);
+        console.log("Here is my response");
+        this.startPayment = data;
+        this.proceedForPayment();
       },
       error => {
         console.log(error);
       }
     )
-
   }
 
+  proceedForPayment(){
+    if(this.startPayment== "Yes"){
+      console.log("HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHh")
+    }
+  }
 }

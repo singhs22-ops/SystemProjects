@@ -35,11 +35,11 @@ export class CallApiService {
   }
 
   sendTicketNumber(ticketNum: number){
-    return this.http.post(`${API_URL}/ticketBooking/getTicketclass/${ticketNum}`,null);
+    return this.http.post(`${API_URL}/ticketBooking/ticketNum/${ticketNum}`,null);
   }
 
   startBooking(){
-    return this.http.post(`${API_URL}/ticketBooking/startBooking`,null);
+    return this.http.post(`${API_URL}/ticketBooking/startBooking`,{ responseType: 'text'});
   }
 
 }

@@ -56,10 +56,15 @@ public class ApiEndPoints {
 		return time.getHunger();
 	}
 	
-	@PostMapping("/getTicketclass/classV")
+	@PostMapping("/getTicketclass/{classV}")
 	public String getTicketclass(@PathVariable String classV) {
 		ticketstatus.setTicketclass(classV);
-		return "Done";
+		bt.setVclass(classV);
+		System.out.println("classssssss"+bt.getVclass());
+		if(bt.getVclass().equals(classV)) {
+			return "done";
+		}
+		return "Not-Done";
 	}
 	
 	//PaymentProcessingMovie_name
@@ -74,10 +79,16 @@ public class ApiEndPoints {
 		bt.setNoSeats(num);
 		return "Noted"+num;
 	}
+	
+	
 	@PostMapping("/startBooking")
-	public boolean startBooking() {
-		bt.startBooking();
-		return true;
+	public String startBooking() {
+		System.out.println("Ticket start booking"+ bt.startBooking());
+		if(bt.startBooking()) {
+			System.out.println("BOOKING STARTED");
+			return "Yes";
+		}
+		return "No";
 	}
 	
 }

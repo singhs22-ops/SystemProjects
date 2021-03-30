@@ -8,7 +8,9 @@ public class Bookfinaltickets {
 
 	public boolean getGoldBooking(int n, int a[][]) {
 		
+		System.out.println("Ticketselected-gold booking");
 		for(int i=0;i<30;i++) {
+			System.out.println(" tic"+a[2][i]);
 			if(a[2][i]==0) {
 				if(i+n<30) {
 					for(int j=i;j<n+1;j++) {
@@ -24,6 +26,8 @@ public class Bookfinaltickets {
 	
 	public boolean getPremiumBooking(int n, int a[][]) {
 		
+		
+		System.out.println("Ticketselected-Premium booking");
 		for(int i=0;i<2;i++) {
 			for(int j=0;j<30;j++) {
 				//getpremiumBooking
