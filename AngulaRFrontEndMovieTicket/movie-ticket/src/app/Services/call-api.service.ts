@@ -39,7 +39,7 @@ export class CallApiService {
   }
 
   startBooking(){
-    return this.http.post(`${API_URL}/ticketBooking/startBooking`,{ responseType: 'text'});
+    return this.http.post(`${API_URL}/ticketBooking/startBooking`,null);
   }
 
 }

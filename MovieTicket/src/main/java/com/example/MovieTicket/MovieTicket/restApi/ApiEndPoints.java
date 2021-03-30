@@ -32,6 +32,16 @@ public class ApiEndPoints {
 		return "HHHHH";
 	}
 	
+	@PostMapping("/startBooking")
+	public String startBooking() {
+		System.out.println("Ticket start booking"+ bt.startBooking());
+		if(bt.startBooking()) {
+			System.out.println("BOOKING STARTED");
+			return "Yes";
+		}
+		return "No";
+	}
+	
 	@PostMapping("/listofMovies")
 	public List<String> listofMovies(){
 
@@ -81,14 +91,6 @@ public class ApiEndPoints {
 	}
 	
 	
-	@PostMapping("/startBooking")
-	public String startBooking() {
-		System.out.println("Ticket start booking"+ bt.startBooking());
-		if(bt.startBooking()) {
-			System.out.println("BOOKING STARTED");
-			return "Yes";
-		}
-		return "No";
-	}
+
 	
 }

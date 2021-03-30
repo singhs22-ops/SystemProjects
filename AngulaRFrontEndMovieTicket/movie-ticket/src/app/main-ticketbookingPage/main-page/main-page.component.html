@@ -74,3 +74,12 @@
 
 <h1 style="color: crimson;font-family: Verdana, Geneva, Tahoma, sans-serif;">Payment Gateway</h1>
 <h3 style="color: rgb(34, 87, 24);font-family: Verdana, Geneva, Tahoma, sans-serif;">!Please wait untill payment is completed</h3>
+
+
+
+<button type="button" (click)="changeCondition()">Click to reset and click again to stop payment</button>
+<button type="reset" *ngIf="condition">Press to stop payment</button>
+
+<h1 *ngIf="displaymessage" style="color: mediumblue;">Process aborted</h1>
+
+

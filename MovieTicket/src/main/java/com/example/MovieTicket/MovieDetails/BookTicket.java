@@ -144,6 +144,7 @@ public class BookTicket {
 		
 		//String Tickseled =getTicketselected();
 	if(this.ticketselected!=null) {
+		try {
 		MovieSep = this.ticketselected.split("@", 2);
 		setMovieName(MovieSep[0]);
 		TimeLoc = MovieSep[1].split(",",2);
@@ -151,6 +152,10 @@ public class BookTicket {
 		setLoc(TimeLoc[1]);
 		System.out.println("Value of class"+this.vclass);
 		return true;
+		}
+		catch(Exception e) {
+			
+		}
 	}
 		
 		return false;
@@ -162,6 +167,7 @@ public class BookTicket {
 			return false;
 		}
 		
+		try {
 		if((this.getMovieName().equals("Hunger"))) {
 			
 			if( (this.getTime().equals("15-17PM")) && (this.getLoc().equals("Sarjapur")))
@@ -256,6 +262,10 @@ public class BookTicket {
 						return getPremiumBooking(getNoSeats(), getWhitefeildMarry());
 				}
 			}
+		}
+		catch(Exception e) {
+			
+		}
 			return false;
 	}
 	
@@ -285,9 +295,21 @@ public boolean getGoldBooking(int n, int a[][]) {
 		
 		System.out.println("Ticketselected-Premium booking");
 		for(int i=0;i<2;i++) {
+			int k=0;
 			for(int j=0;j<30;j++) {
 				//getpremiumBooking
-				j++;
+				if(a[i][j]==0) {
+					if((i==1)&&(j+n>30)) {
+						return false;
+					}
+					else {
+						while(k<n) {
+						a[i][j]=1;
+						k++;
+						}
+					}
+						
+				}
 				return true;
 			}
 			

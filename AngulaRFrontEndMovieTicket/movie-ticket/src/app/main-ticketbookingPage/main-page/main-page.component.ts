@@ -20,6 +20,8 @@ export class MainPageComponent implements OnInit {
   ticketnumber: number = 1;
   dataTobeSent: String;
   startPayment:any ;
+  condition: boolean= false;
+  displaymessage:boolean = false;
 
 
 
@@ -182,13 +184,15 @@ export class MainPageComponent implements OnInit {
   startBooking(){
     this.apihttp.startBooking().subscribe(
       data => {
+        this.startPayment = data;
         console.log("Booking Done   "+data);
         console.log("Here is my response");
-        this.startPayment = data;
+        
         this.proceedForPayment();
       },
       error => {
         console.log(error);
+        this.proceedForPayment();
       }
     )
   }
@@ -197,5 +201,12 @@ export class MainPageComponent implements OnInit {
     if(this.startPayment== "Yes"){
       console.log("HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHh")
     }
+    if(this.startPayment ==="No"){
+      this.displaymessage= true;
+    }
+  }
+
+  changeCondition(){
+    this.condition = true;
   }
 }
