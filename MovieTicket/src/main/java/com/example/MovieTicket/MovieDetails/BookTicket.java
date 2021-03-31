@@ -216,7 +216,7 @@ public class BookTicket {
 						return m1W.getGoldBooking(getNoSeats());
 					}
 					else
-						return m1W.getPremiumBooking(getNoSeats()));
+						return m1W.getPremiumBooking(getNoSeats());
 				}
 			}
 		}
