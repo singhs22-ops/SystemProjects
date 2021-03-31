@@ -1,5 +1,15 @@
 package com.example.MovieTicket.MovieDetails;
 
+import com.example.MovieTicket.MovieDetails.Ticketspackage.HungerBellandur;
+import com.example.MovieTicket.MovieDetails.Ticketspackage.HungerSarjapur;
+import com.example.MovieTicket.MovieDetails.Ticketspackage.HungerWhitefeild;
+import com.example.MovieTicket.MovieDetails.Ticketspackage.MadeBellandur;
+import com.example.MovieTicket.MovieDetails.Ticketspackage.MadeSarjapur;
+import com.example.MovieTicket.MovieDetails.Ticketspackage.MadeWhitefeild;
+import com.example.MovieTicket.MovieDetails.Ticketspackage.MarryBellandur;
+import com.example.MovieTicket.MovieDetails.Ticketspackage.MarrySarjapur;
+import com.example.MovieTicket.MovieDetails.Ticketspackage.MarryWhitefeild;
+
 public class BookTicket {
 
 	public BookTicket() {
@@ -8,6 +18,17 @@ public class BookTicket {
 	
 	Bookfinaltickets bft = new Bookfinaltickets();
 	ticketstatus bookn = new ticketstatus();
+	HungerSarjapur hS = new HungerSarjapur();
+	HungerBellandur hB = new HungerBellandur();
+	HungerWhitefeild hW = new HungerWhitefeild();
+	
+	MadeSarjapur mS = new MadeSarjapur();
+	MadeBellandur mB = new MadeBellandur();
+	MadeWhitefeild mW =new MadeWhitefeild();
+	
+	MarrySarjapur m1S = new MarrySarjapur();
+	MarryBellandur m1B = new MarryBellandur();
+	MarryWhitefeild m1W = new MarryWhitefeild();
 	
 	
 	public String ticketselected;
@@ -26,74 +47,8 @@ public class BookTicket {
 	public String Loc;
 	
 	//Let us assume there are 30 seats @each hall
-	public int sarjapurMade[][] = new int[3][10];
-	public int sarjapurMarry[][] = new int[3][10];
-	public int sarjapurHunger[][] = new int[3][10];
 	
-	public int bellandurMade[][] = new int[3][10];
-	public int bellandurMarry[][] = new int[3][10];
-	public int bellandurHunger[][] = new int[3][10];
-	
-	
-	public int whitefeildMade[][] = new int[3][10];
-	public int whitefeildMarry[][] = new int[3][10];
-	public int whitefeildHunger[][] = new int[3][10];
-	
-	
-	public int[][] getSarjapurMade() {
-		return sarjapurMade;
-	}
-	public void setSarjapurMade(int[][] sarjapurMade) {
-		this.sarjapurMade = sarjapurMade;
-	}
-	public int[][] getSarjapurMarry() {
-		return sarjapurMarry;
-	}
-	public void setSarjapurMarry(int[][] sarjapurMarry) {
-		this.sarjapurMarry = sarjapurMarry;
-	}
-	public int[][] getSarjapurHunger() {
-		return sarjapurHunger;
-	}
-	public void setSarjapurHunger(int[][] sarjapurHunger) {
-		this.sarjapurHunger = sarjapurHunger;
-	}
-	public int[][] getBellandurMade() {
-		return bellandurMade;
-	}
-	public void setBellandurMade(int[][] bellandurMade) {
-		this.bellandurMade = bellandurMade;
-	}
-	public int[][] getBellandurMarry() {
-		return bellandurMarry;
-	}
-	public void setBellandurMarry(int[][] bellandurMarry) {
-		this.bellandurMarry = bellandurMarry;
-	}
-	public int[][] getBellandurHunger() {
-		return bellandurHunger;
-	}
-	public void setBellandurHunger(int[][] bellandurHunger) {
-		this.bellandurHunger = bellandurHunger;
-	}
-	public int[][] getWhitefeildMade() {
-		return whitefeildMade;
-	}
-	public void setWhitefeildMade(int[][] whitefeildMade) {
-		this.whitefeildMade = whitefeildMade;
-	}
-	public int[][] getWhitefeildMarry() {
-		return whitefeildMarry;
-	}
-	public void setWhitefeildMarry(int[][] whitefeildMarry) {
-		this.whitefeildMarry = whitefeildMarry;
-	}
-	public int[][] getWhitefeildHunger() {
-		return whitefeildHunger;
-	}
-	public void setWhitefeildHunger(int[][] whitefeildHunger) {
-		this.whitefeildHunger = whitefeildHunger;
-	}
+
 	public String getMovieName() {
 		return MovieName;
 	}
@@ -155,6 +110,8 @@ public class BookTicket {
 		}
 		catch(Exception e) {
 			
+			System.out.println(e.getMessage()+ "Line 155");
+			
 		}
 	}
 		
@@ -174,33 +131,33 @@ public class BookTicket {
 			{
 				if(this.getVclass().equals("Gold")) {
 					System.out.println("Hunger+15-17+Sarjapur");
-					return getGoldBooking(getNoSeats(), getSarjapurHunger());
+					return hS.getGoldBooking(getNoSeats());
 					
 				}
 				else
 					System.out.println("Hunger+15-17+Sarjapur+Premium");
-					return getPremiumBooking(getNoSeats(), getSarjapurHunger());
+					return hS.getPremiumBooking(getNoSeats());
 					
 			}
 			if((this.getTime().equals("17-19PM"))&&(this.getLoc().equals("Bellandur"))) {
 				
 				if(this.getVclass().equals("Gold")) {
 					System.out.println("12");
-					return getGoldBooking(getNoSeats(), getBellandurHunger());
+					return hB.getGoldBooking(getNoSeats());
 					
 				}
 				else
 					System.out.println("12P");
-					return getPremiumBooking(getNoSeats(),getBellandurHunger());
+					return hB.getPremiumBooking(getNoSeats());
 					
 			}
 			if((this.getTime().equals("13-15PM"))&&(this.getLoc().equals("Whitefeild"))) {
 				
 				if(this.getVclass().equals("Gold")) {
-					return getGoldBooking(getNoSeats(), getWhitefeildHunger());
+					return hW.getGoldBooking(getNoSeats());
 				}
 				else
-					return getPremiumBooking(getNoSeats(), getWhitefeildHunger());
+					return hW.getPremiumBooking(getNoSeats());
 			}
 		}
 		
@@ -212,27 +169,27 @@ public class BookTicket {
 		  if((this.getTime().equals("10-12AM"))&&(this.getLoc().equals("Sarjapur"))) {
 					
 					if(this.getVclass().equals("Gold")) {
-						return getGoldBooking(getNoSeats(), getSarjapurMade());
+						return mS.getGoldBooking(getNoSeats());
 					}
 					else
-						return getPremiumBooking(getNoSeats(), getSarjapurMade());
+						return mS.getPremiumBooking(getNoSeats());
 				
 				}
 				if((this.getTime().equals("14-16PM"))&&(this.getLoc().equals("Bellandur"))) {
 					
 					if(this.getVclass().equals("Gold")) {
-						return getGoldBooking(getNoSeats(),getBellandurMade());
+						return mB.getGoldBooking(getNoSeats());
 					}
 					else
-						return getPremiumBooking(getNoSeats(), getBellandurMade());
+						return mB.getPremiumBooking(getNoSeats());
 				}
 				if((this.getTime().equals("19-21PM"))&&(this.getLoc().equals("Whitefeild"))) {
 					
 					if(this.getVclass().equals("Gold")) {
-						return getGoldBooking(getNoSeats(), getWhitefeildMade());
+						return mW.getGoldBooking(getNoSeats());
 					}
 					else
-						return getPremiumBooking(getNoSeats(), getWhitefeildMade());
+						return mW.getPremiumBooking(getNoSeats());
 				}
 		}
 
@@ -241,81 +198,34 @@ public class BookTicket {
 				if((this.getTime().equals("8-10AM"))&&(this.getLoc().equals("Sarjapur"))) {
 					
 					if(this.getVclass().equals("Gold")) {
-						return getGoldBooking(getNoSeats(), getSarjapurMarry());
+						return m1S.getGoldBooking(getNoSeats());
 					}
 					else
-						return getPremiumBooking(getNoSeats(), getSarjapurMarry());
+						return m1S.getPremiumBooking(getNoSeats());
 				}
 				if((this.getTime().equals("12-14PM"))&&(this.getLoc().equals("Bellandur"))) {
 					
 					if(this.getVclass().equals("Gold")) {
-						return getGoldBooking(getNoSeats(), getBellandurMarry());
+						return m1B.getGoldBooking(getNoSeats());
 					}
 					else
-						return getPremiumBooking(getNoSeats(), getBellandurMarry());
+						return m1B.getPremiumBooking(getNoSeats());
 				}
 				if((this.getTime().equals("18-20PM"))&&(this.getLoc().equals("Whitefeild"))) {
 					if(this.getVclass().equals("Gold")) {
-						return getGoldBooking(getNoSeats(), getWhitefeildMarry());
+						return m1W.getGoldBooking(getNoSeats());
 					}
 					else
-						return getPremiumBooking(getNoSeats(), getWhitefeildMarry());
+						return m1W.getPremiumBooking(getNoSeats()));
 				}
 			}
 		}
 		catch(Exception e) {
+			System.out.println(e.getMessage()+ "Line 264 BT");
 			
 		}
 			return false;
 	}
 	
 	
-	
-	
-public boolean getGoldBooking(int n, int a[][]) {
-		
-		System.out.println("Ticketselected-gold booking");
-		for(int i=0;i<30;i++) {
-			System.out.println(" tic"+a[2][i]);
-			if(a[2][i]==0) {
-				if(i+n<30) {
-					for(int j=i;j<n+1;j++) {
-						a[2][j]=1;
-					}
-					return true;
-				}
-			}
-			
-		}
-		return false;
-	}
-	
-	public boolean getPremiumBooking(int n, int a[][]) {
-		
-		
-		System.out.println("Ticketselected-Premium booking");
-		for(int i=0;i<2;i++) {
-			int k=0;
-			for(int j=0;j<30;j++) {
-				//getpremiumBooking
-				if(a[i][j]==0) {
-					if((i==1)&&(j+n>30)) {
-						return false;
-					}
-					else {
-						while(k<n) {
-						a[i][j]=1;
-						k++;
-						}
-					}
-						
-				}
-				return true;
-			}
-			
-		}
-		
-		return false;
-	}
-
 }
