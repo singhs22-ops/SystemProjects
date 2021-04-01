@@ -198,7 +198,7 @@ export class MainPageComponent implements OnInit {
   }
 
   proceedForPayment(){
-    if(this.startPayment== "Yes"){
+    if(this.startPayment=== "Yes"){
       console.log("HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHh")
     }
     if(this.startPayment ==="No"){

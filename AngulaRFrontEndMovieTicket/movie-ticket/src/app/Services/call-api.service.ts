@@ -26,20 +26,20 @@ export class CallApiService {
   }
 
   PaymentProcessingMovie_name(movieSelected:String){
-    return this.http.post(`${API_URL}/ticketBooking/PaymentProcessingMovie_name/${movieSelected}`,null);
+    return this.http.post(`${API_URL}/ticketBooking/PaymentProcessingMovie_name/${movieSelected}`,null,{ responseType: 'text'});
   }
 
   
   getTicketclass(classSelected:String){
-    return this.http.post(`${API_URL}/ticketBooking/getTicketclass/${classSelected}`,null);
+    return this.http.post(`${API_URL}/ticketBooking/getTicketclass/${classSelected}`,null, { responseType: 'text'});
   }
 
   sendTicketNumber(ticketNum: number){
-    return this.http.post(`${API_URL}/ticketBooking/ticketNum/${ticketNum}`,null);
+    return this.http.post(`${API_URL}/ticketBooking/ticketNum/${ticketNum}`,null, { responseType: 'text'});
   }
 
   startBooking(){
-    return this.http.post(`${API_URL}/ticketBooking/startBooking`,null);
+    return this.http.post(`${API_URL}/ticketBooking/startBooking`,null, { responseType: 'text'});
   }
 
 }
