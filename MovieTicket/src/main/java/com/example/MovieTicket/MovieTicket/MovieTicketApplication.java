@@ -9,5 +9,7 @@ public class MovieTicketApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MovieTicketApplication.class, args);
 	}
+	
+	TestWord test = new TestWord();
 
 }

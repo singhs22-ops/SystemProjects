@@ -1,0 +1,10 @@
+.home {
+	padding: 56px 20px;
+	min-height: 100%;
+	width: 100%;
+}
+.form__input-field{
+	border-style: solid;
+	border-color: black;
+	background-color: darkgrey;
+}
